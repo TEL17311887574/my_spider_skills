@@ -1,3 +1,18 @@
 [submodule "android-reverse-engineering"]
 	path = android-reverse-engineering
 	url = https://github.com/SimoneAvogadro/android-reverse-engineering-skill.git
+[submodule "reverse-skills"]
+	path = reverse-skills
+	url = https://github.com/P4nda0s/reverse-skills.git
+[submodule "js-reverse-automation-skill"]
+	path = js-reverse-automation-skill
+	url = https://github.com/Fausto-404/js-reverse-automation--skill.git
+[submodule "ai-reverse-toolkit"]
+	path = ai-reverse-toolkit
+	url = https://github.com/zhizhuodemao/ai-reverse-toolkit.git
+[submodule "jshook-skill"]
+	path = jshook-skill
+	url = https://github.com/wuji66dde/jshook-skill.git
+[submodule "skills-betab0t"]
+	path = skills-betab0t
+	url = https://github.com/betab0t/skills.git
