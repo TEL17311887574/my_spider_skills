@@ -1,0 +1,3 @@
+[submodule "android-reverse-engineering"]
+	path = android-reverse-engineering
+	url = https://github.com/SimoneAvogadro/android-reverse-engineering-skill.git
