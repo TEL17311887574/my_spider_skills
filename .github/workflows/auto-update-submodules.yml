@@ -1,0 +1,32 @@
+name: Auto Update Submodules
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 每天凌晨2点运行
+  workflow_dispatch:      # 允许手动点击运行
+
+permissions:
+  contents: write          # 允许自动提交并推送
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+
+      - name: Update submodules to latest upstream
+        run: |
+          # 遍历所有子模块，拉取上游主分支最新代码
+          git submodule update --remote --recursive
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git diff --staged --quiet || git commit -m "自动将子模块同步到最新的上游版本"
+          git push
