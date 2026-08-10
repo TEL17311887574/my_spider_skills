@@ -1,0 +1,157 @@
+﻿[
+    {
+        "prompt":  "Geetest4 /load 返回 lot_number、pow_detail、payload，我要纯 Python 生成 verify 的 w",
+        "should_trigger":  true,
+        "reason":  "GT4 protocol and w generation"
+    },
+    {
+        "prompt":  "gt4 verify 返回 param decrypt error，怀疑 pt=1 的 AES+RSA 层级错了",
+        "should_trigger":  true,
+        "reason":  "GT4 w encryption debugging"
+    },
+    {
+        "prompt":  "腾讯滑块 TDC.getData(true) 在 Node 里返回 Err%3A，帮我补 slide.js 环境并导出 collect",
+        "should_trigger":  true,
+        "reason":  "Tencent slide TDC environment and collect generation"
+    },
+    {
+        "prompt":  "cap_union_prehandle 返回 pow_cfg 和 tdc_path，想完整请求 cap_union_new_verify",
+        "should_trigger":  true,
+        "reason":  "Tencent captcha protocol chain"
+    },
+    {
+        "prompt":  "网易易盾 api/v3/get 返回 bg front token，帮我生成 cb、轨迹 data 并请求 api/v3/check",
+        "should_trigger":  true,
+        "reason":  "Yidun slide get/check protocol and data generation"
+    },
+    {
+        "prompt":  "NECaptcha 的 data 参数里 d p f ext 怎么根据 token 和轨迹生成",
+        "should_trigger":  true,
+        "reason":  "Yidun data parameter generation"
+    },
+    {
+        "prompt":  "数美滑块 ca/v1/register 返回 bg fg rid，帮我生成轨迹和 fverify 参数",
+        "should_trigger":  true,
+        "reason":  "Shumei slide register/fverify protocol chain"
+    },
+    {
+        "prompt":  "captcha1.fengkongcloud.cn 的 get_params.js 里 ww bb wi gq vs 怎么生成",
+        "should_trigger":  true,
+        "reason":  "Shumei fverify parameter generation"
+    },
+    {
+        "prompt":  "云片 captcha.yunpian.com 的 captcha/get 返回 bg front token，帮我生成 verify 的 i k cb",
+        "should_trigger":  true,
+        "reason":  "Yunpian captcha get/verify protocol chain"
+    },
+    {
+        "prompt":  "yp.js 里面 get_i_k_position 怎么把 points distanceX fp yp_riddler_id 加密成 i/k",
+        "should_trigger":  true,
+        "reason":  "Yunpian i/k behavior payload generation"
+    },
+    {
+        "prompt":  "360天御 api/v3/auth 返回 bg front captchaId token k，帮我还原图片并生成 check 的 report",
+        "should_trigger":  true,
+        "reason":  "360 Tianyu auth/check protocol and report generation"
+    },
+    {
+        "prompt":  "captcha.jiagu.360.cn 的 report 是轨迹 JSON 加 md5(captchaId+token) 再 RSA encryptLong 吗",
+        "should_trigger":  true,
+        "reason":  "360 Tianyu report encryption details"
+    },
+    {
+        "prompt":  "我只是想用 ddddocr 找滑块缺口，不需要请求 verify",
+        "should_trigger":  false,
+        "reason":  "Only image recognition"
+    },
+    {
+        "prompt":  "给我一个 hook fetch 和 xhr 的浏览器脚本",
+        "should_trigger":  false,
+        "reason":  "Browser hook snippet"
+    },
+    {
+        "prompt":  "帮我找这个接口 header sign 是哪个函数生成的",
+        "should_trigger":  false,
+        "reason":  "Generic crypto entry location"
+    },
+    {
+        "prompt":  "瑞数 412 首跳 cookie 怎么缓存到本地项目",
+        "should_trigger":  false,
+        "reason":  "Ruishu challenge, not slide captcha"
+    },
+    {
+        "prompt":  "帮我补 Node 环境运行这个混淆 JS，它用了 a_bogus 和 canvas 指纹",
+        "should_trigger":  false,
+        "reason":  "General env-patch for obfuscated JS, not slide captcha"
+    },
+    {
+        "prompt":  "这个网站是 sign 是 bdms 生成的，帮我定位入口并还原算法",
+        "should_trigger":  false,
+        "reason":  "Generic crypto entry location, hand off to camoufox-js-reverse"
+    },
+    {
+        "prompt":  "Python + iv8 跑网页里那段生成 cookie 的 JS，再用 requests 发请求",
+        "should_trigger":  false,
+        "reason":  "Python + iv8 execution, hand off to iv8-web-reverse"
+    },
+    {
+        "prompt":  "腾讯 TDC 的 slide.js 帮我放到 Node 补环境跑通，只导出 collect 值",
+        "should_trigger":  true,
+        "reason":  "Tencent TDC slide.js environment patching — still captcha-slide work despite env-patch overlap"
+    },
+    {
+        "prompt":  "用 Python 把数美滑块的 register 到 fverify 整条链路走通，包括 get_params.js",
+        "should_trigger":  true,
+        "reason":  "Shumei full protocol chain with JS parameter generation"
+    },
+    {
+        "prompt":  "极验 /load 返回了图片，帮我算出 setLeft 并生成 w",
+        "should_trigger":  true,
+        "reason":  "GT4 slide distance + w generation"
+    },
+    {
+        "prompt":  "360 天御的 rsa_1.js 里 encryptReport 怎么调，k 需要先 base64 解码吗",
+        "should_trigger":  true,
+        "reason":  "360 Tianyu report encryption detail"
+    },
+    {
+        "prompt":  "这个 captchaId 和 token 在哪个接口拿到的，我只想找前端入口位置",
+        "should_trigger":  false,
+        "reason":  "Only locating frontend entry point, not full captcha reversal"
+    },
+    {
+        "prompt":  "帮我改一下易盾滑动验证码的 UI 样式，让滑块更好看",
+        "should_trigger":  false,
+        "reason":  "UI style issue, not captcha protocol reversal"
+    },
+    {
+        "prompt":  "极验3 slide-float 页加载 fullpage.9.2.0 和 slide.7.9.3，帮我纯协议跑通 get.php/ajax.php 的 w",
+        "should_trigger":  true,
+        "reason":  "Geetest GT3 fullpage + slide pure protocol chain"
+    },
+    {
+        "prompt":  "GT3 pre ajax.php 返回 param decrypt error，initial w 和 pre w 是不是要复用 aeskey",
+        "should_trigger":  true,
+        "reason":  "Geetest GT3 pre-radar aeskey troubleshooting"
+    },
+    {
+        "prompt":  "register-slide 返回 gt challenge，gettype.php 返回 fullpage，最终 ajax.php 要 $_BCm 和 validate",
+        "should_trigger":  true,
+        "reason":  "Geetest GT3 request chain and final ajax validation"
+    },
+    {
+        "prompt":  "极验3 bg fullbg slice 怎么还原 52 块乱序图并计算滑动距离",
+        "should_trigger":  true,
+        "reason":  "Geetest GT3 image restore and distance as part of protocol reversal"
+    },
+    {
+        "prompt":  "我只想要一段 DevTools hook 脚本观察 GT3 的 ajax.php 参数，不需要生成协议代码",
+        "should_trigger":  false,
+        "reason":  "Only browser hook snippet, hand off to browser-hook-snippets"
+    },
+    {
+        "prompt":  "只有一张极验3背景图，帮我用 OCR 找缺口，不请求 ajax.php",
+        "should_trigger":  false,
+        "reason":  "Only image recognition without captcha protocol"
+    }
+]

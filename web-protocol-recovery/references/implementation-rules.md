@@ -1,0 +1,23 @@
+# Implementation Rules
+
+- keep headers, cookies, signer logic, pagination, output, retries, and persistence in separate modules
+- keep handshake bootstrap, session secrets, frame codecs, business parsing, and media derivation in separate modules when the target is stateful
+- make `sessionid`, timeout, retry, sleep, and output path explicit arguments
+- log or print sign inputs and outputs until they match verified samples
+- include fixed-input self-checks before live traffic
+- capture one clean baseline before broad hooks on verifier-gated or behavior-sensitive targets
+- prefer Python reimplementation of crypto before falling back to JS execution
+- if JS is kept, keep it narrowly scoped to parameter restoration, signer logic, token generation, cookie reconstruction, or local decoding only
+- make the final runtime split explicit: Python owns HTTP, pagination, retries, parsing, storage, and orchestration; JS owns only the minimal parameter restoration that still cannot be ported safely
+- strip browser-only assumptions from helper code or emulate them locally without launching a browser
+- prefer stdlib HTTP clients when you want zero dependencies or the environment's third-party stack is noisy
+- preserve weird delimiters and non-ASCII separators explicitly
+- treat bootstrap artifacts such as public keys, config blobs, nonce seeds, and wrapper field names as first-class inputs
+- prove cookie provenance before caching or persisting rotating cookies in the collector
+- validate compact JSON shape, sign input order, timestamp precision, and chunked-encryption boundaries separately before blaming the runtime
+- save raw request and response samples during early development
+- save one raw handshake transcript and one post-auth business frame before rewriting the collector
+- support narrow per-page or per-request exceptions in configuration instead of hardcoding chaos into the main loop
+- make category and pagination fields explicit when the page may be injecting hidden tab state
+- fail loudly on unexpected response shapes
+- if older notes disagree with live output, trust fresh live evidence

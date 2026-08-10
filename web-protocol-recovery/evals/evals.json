@@ -1,0 +1,118 @@
+{
+  "skill_name": "web-protocol-recovery",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "这个网站首页返回 412，执行内联 JS 后生成动态 Cookie，接着 API 请求需要 sign 签名，响应体还是加密的。帮我端到端还原成脱离浏览器的 Python 采集器，给出真实接口路径、动态状态分类和离线重建方案。",
+      "expected_output": "应先执行 startup gate 四项检查：环境与工具、缓存目录、目标家族分类、交付意图；确认 `chrome-devtools` + `cloakbrowser-reverse-mcp` 基线工具，记录 `js-reverse` fallback 状态；确认目标为多层交织的协议链路，走 universal reverse loop 五阶段：指纹化→确认真实请求→分类动态字段→逐层定位突变点→离线重建；交付时明确真实接口路径、动态状态分类结论、重建路径（纯 Python / Python+极小 JS / Python+WASM / Python+bootstrap executor），不将浏览器自动化作为最终方案。",
+      "files": [],
+      "expectations": [
+        "The response starts with the four-part startup gate and records chrome-devtools + cloakbrowser-reverse-mcp baseline availability",
+        "The response maps the request chain: challenge → cookie → sign → response decode",
+        "The response classifies dynamic fields (cookie vs sign vs decode vs transport envelope)",
+        "The response proposes an offline reproduction path without browser automation",
+        "The response does not stop at entry location or hook scripts"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "这个接口返回的响应是二进制 blob，页面先用 WASM 解密再用字体文件映射字形才显示真实数字。帮我把解码链路移植到 Python，最终产出可复现的采集器。",
+      "expected_output": "应识别为 response-decode-gated 家族，走 response-decode-playbook 和 side-asset-bootstrap-playbook；确认 WASM 导出函数、字体映射表和中间解码步骤，优先纯 Python 移植，必要时 Python + 极小 WASM helper。",
+      "files": [],
+      "expectations": [
+        "The response classifies this as decode-gated or side-asset-bootstrap pattern",
+        "The response identifies the decode chain: WASM decrypt → font glyph mapping",
+        "The response treats .wasm and font files as first-class bootstrap assets",
+        "The response proposes a reproduction path: Pure Python > Python+WASM helper"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "目标网站每次首页请求返回的内联 JS 都不一样，执行后 document.cookie 才写入业务接口需要的 cookie。帮我把这个 bootstrap 链复原成离线 Python 逻辑。",
+      "expected_output": "应识别为 session-gated / server-js-cookie-bootstrap 家族，走 server-js-cookie-bootstrap-playbook；提取内联 JS 播种逻辑、cookie 写入点，证明 cookie 出处后再离线重建。",
+      "files": [],
+      "expectations": [
+        "The response follows cookie-provenance-playbook: proves who writes the cookie and how it refreshes",
+        "The response treats server-returned JS as a bootstrap seed, not a fixed script",
+        "The response distinguishes cookie bootstrap from static cookie reuse"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "页面代码里构建了 token 字段，线路上发的却是另一个参数名 _m。帮我拆这个传输包装层，找出真实请求路径和改写逻辑。",
+      "expected_output": "应识别为运输包装模式（Pattern A/B），走 transport-wrapper-playbook；分析页面构造的参数与线路上实际发出的参数之间的映射，定位置换逻辑。",
+      "files": [],
+      "expectations": [
+        "The response identifies this as a transport-wrapper pattern (decoy vs real request)",
+        "The response follows the rule: trust the wire, not the page text",
+        "The response locates the rewrite point between page-level construction and wire transmission"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "这个 GraphQL 接口的 operationName 和 variables 有签名校验，传输走 WebSocket，响应是 msgpack 编码。帮我恢复完整协议链路。",
+      "expected_output": "应走 structured-transport-playbook，区分 GraphQL 信封签名、WebSocket 有状态流和 msgpack 解码层；按层恢复并验证每层再叠加上层。",
+      "files": [],
+      "expectations": [
+        "The response identifies GraphQL + WebSocket + msgpack as a structured transport pattern",
+        "The response treats the transport as layered: envelope sign → stateful stream → binary decode",
+        "The response validates each layer independently before stacking"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "签名函数的输入输出我都抓到了，但是我的 Python 实现产出的 sign 和浏览器产出的总是差几个字符。帮我做协议 diff，定位 first divergence。",
+      "expected_output": "应使用 scripts/protocol_diff.py 或等价方法对比请求/响应样本，做固定输入自检；优先怀疑 hash 前导处理、编码边界、时间戳格式、salt/nonce 来源或 helper 函数被 patch。",
+      "files": [],
+      "expectations": [
+        "The response recommends fixed-input verification before sending real traffic",
+        "The response checks for patched helpers (md5/btoa/sha1 not matching standard output)",
+        "The response uses protocol diff to find the first point where browser and Python diverge"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "这个站点需要先通过验证码/captcha 拿到一次性 token，然后才能调业务接口。我不想走浏览器自动化，帮我把 verifier 门控逻辑还原成协议。",
+      "expected_output": "应走 verifier-replay-playbook；区分 captcha 挑战类型（图片/POW/事件轨迹），识别 verifier 返回的 token 结构和下游请求如何使用它；必要时保留本地 captcha 求解器而非浏览器驱动。",
+      "files": [],
+      "expectations": [
+        "The response treats verifier as a protocol gate, not an automation target",
+        "The response maps: challenge request → verifier response → token extraction → downstream usage",
+        "The response proposes local verifier replay without browser automation"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "首页看起来完全公开，但翻到第 3 页突然 403。怀疑有隐藏的 bootstrap 信封在首屏发放。帮我找出这个启动引导机制。",
+      "expected_output": "应走 public-bootstrap-envelope-playbook 和 page-specific-exception-playbook；检查首屏是否返回了密钥/config/nonce seed，确认单页异常的根因是缺失启动引导而非 IP 封禁。",
+      "files": [],
+      "expectations": [
+        "The response checks the initial page load for hidden bootstrap envelopes (key/config/nonce)",
+        "The response follows page-specific-exception-playbook: narrow exception, narrow fix",
+        "The response does not blindly add global headers or cookies"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "这个网站的请求参数里有一个看起来像 MD5 的字段，但用标准 MD5 算出来不对。帮我找到被 patch 的 helper 函数和正确的签名逻辑。",
+      "expected_output": "应走 patched-helper-playbook；用 scripts/crypto_fingerprint.py 指纹化可疑摘要，检查标准函数是否被改写（添加了自定义 salt、自定义 padding、自定义编码），定位 patch 点并复现。",
+      "files": [],
+      "expectations": [
+        "The response does not accept the function name as ground truth for the algorithm",
+        "The response fingerprints the digest with crypto_fingerprint or equivalent method",
+        "The response checks for custom salt, padding, or encoding that deviates from the standard"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "我已经成功回放 2 次了，但第 3 次请求状态动态过期。帮我验证动态状态是否正确再生，确保采集器可重复工作。",
+      "expected_output": "应走 verification-gates 和 troubleshooting-playbook；检查 cookie 过期、token 刷新、session 状态再生逻辑，确认翻页后状态是否正确演进；补充状态再生验证后再声明可重复。",
+      "files": [],
+      "expectations": [
+        "The response checks dynamic state regeneration: cookie refresh, token rotation, session expiry",
+        "The response verifies across multiple requests before declaring reproducible",
+        "The response follows the rule: one stable request → then pagination, concurrency, scale"
+      ]
+    }
+  ]
+}

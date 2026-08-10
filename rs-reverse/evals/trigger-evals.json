@@ -1,0 +1,107 @@
+[
+  {
+    "query": "这个站有 $_ts.cd 和 r2mKa，帮我创建固定瑞数项目结构，challenge_payload 两个根文件不要覆盖",
+    "should_trigger": true,
+    "reason": "明确瑞数证据，目标是固定项目骨架"
+  },
+  {
+    "query": "帮我把瑞数首跳 HTML、r='m' 外链 JS 和运行报告统一缓存到 js_reverse_cache，不要写进 skill 目录",
+    "should_trigger": true,
+    "reason": "瑞数材料缓存和 artifact 隔离"
+  },
+  {
+    "query": "需要一个最小 mod.js proxy 模板，观察瑞数 JS 读取 navigator、location、document.cookie 哪些环境",
+    "should_trigger": true,
+    "reason": "最小浏览器环境 proxy 观察模板"
+  },
+  {
+    "query": "用 project-templates 生成 main.js、main.py、rs_reverse.js，占位符保留，真实挑战源码只放临时 runtime",
+    "should_trigger": true,
+    "reason": "固定项目模板和 runtime 占位符规则"
+  },
+  {
+    "query": "瑞数页面本地 runner 只想先输出 document.cookie，看缺哪个环境，别走算法深挖",
+    "should_trigger": true,
+    "reason": "轻量 runtime 观察，不做算法深挖"
+  },
+  {
+    "query": "首页 412 明确有 meta[r=m]、Cookie S 和 hasDebug，帮我按固定骨架补 main.py/main.js 并缓存首跳材料",
+    "should_trigger": true,
+    "reason": "明确瑞数证据，目标是固定模板和首跳材料缓存"
+  },
+  {
+    "query": "我只想用 rs_reverse.js 占位符和缓存里的临时 runtime 做一次同 session Cookie 检查，不要覆盖根目录 payload",
+    "should_trigger": true,
+    "reason": "同 session 临时 runtime 检查和根目录 payload 保护"
+  },
+  {
+    "query": "Rivers Security 二跳已经确认，先生成 mod.js 最小 proxy 观察 document.cookie 写入和 navigator 读取",
+    "should_trigger": true,
+    "reason": "Rivers/Ruishu 证据明确，目标是最小 proxy 观察"
+  },
+  {
+    "query": "这个瑞数链路想继续深挖 Cookie 算法、type=2 映射和 r2mKa 字节码",
+    "should_trigger": false
+  },
+  {
+    "query": "我要分析 r2mKa 字节码和 session49，用 AST 工具还原 URL suffix",
+    "should_trigger": false
+  },
+  {
+    "query": "这个瑞数站要做更重的 Node VM / DOM 契约补环境跑通",
+    "should_trigger": false,
+    "expected_skill": "env-patch"
+  },
+  {
+    "query": "瑞数后缀请求依赖高保真页面执行，目标是先跑通请求可用性",
+    "should_trigger": false,
+    "expected_skill": "iv8-web-reverse"
+  },
+  {
+    "query": "后缀请求失败，帮我用 Python + iv8 + requests 跑通分页接口",
+    "should_trigger": false,
+    "expected_skill": "iv8-web-reverse"
+  },
+  {
+    "query": "帮我定位 x-sign 参数是哪个函数生成的，给脚本 URL 和调用链",
+    "should_trigger": false,
+    "expected_skill": "camoufox-js-reverse"
+  },
+  {
+    "query": "给我一段 Chrome Console hook fetch 和 document.cookie 的脚本",
+    "should_trigger": false,
+    "expected_skill": "browser-hook-snippets"
+  },
+  {
+    "query":     "这个 obfuscator while-switch 文件要做 AST 解混淆",
+    "should_trigger": false,
+    "expected_skill": "ast-deobfuscate"
+  },
+  {
+    "query": "这个站 Cookie 里有个看起来像 S 的东西但我不确定是不是瑞数，帮我看一下到底什么防护",
+    "should_trigger": false,
+    "expected_skill": "camoufox-js-reverse"
+  },
+  {
+    "query": "瑞数首跳 cookie 已经拿到了，runner 也下载好了，但我想直接用 Python iv8 跑而不是 Node",
+    "should_trigger": false,
+    "expected_skill": "iv8-web-reverse"
+  },
+  {
+    "query": "确认是瑞数 412 + meta[r=m] + $_ts.cd，帮我建固定骨架先用 Node 跑一遍看能不能出 cookie",
+    "should_trigger": true
+  },
+  {
+    "query": "瑞数二跳虽然能出 cookie 但看不出环境读取差异，帮我用最小 proxy 模板观察哪些全局对象被读了",
+    "should_trigger": true
+  },
+  {
+    "query": "瑞数 $_ts 和 r2mKa 已经确认，但目标不是骨架观察，是要用 env-patch 做完整 Node VM 补环境跑通签名",
+    "should_trigger": false,
+    "expected_skill": "env-patch"
+  },
+  {
+    "query": "首页 412 明确是瑞数，但我不知道从哪里开始，先帮我判断 cookie 里有没有 S/T 再说",
+    "should_trigger": true
+  }
+]

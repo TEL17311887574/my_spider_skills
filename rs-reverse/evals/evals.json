@@ -1,0 +1,61 @@
+{
+  "skill_name": "rs-reverse",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "这个站首页 412 里有 $_ts.cd、$_ts.nsd 和 r2mKa，帮我创建固定瑞数项目结构，challenge_payload_bootstrap.js 和 challenge_payload_runner.js 不要覆盖。",
+      "expected_output": "应确认瑞数证据并走固定项目骨架路线，只从 project-templates 创建缺失文件，不覆盖根目录 challenge_payload_*，创建或保留 js_reverse_cache。",
+      "files": [],
+      "expectations": [
+        "The response identifies explicit Ruishu/Rivers evidence",
+        "The response creates or preserves the fixed files main.js, main.py, mod.js, and rs_reverse.js, and preserves existing challenge_payload_* without creating placeholder payload samples",
+        "The response does not overwrite challenge_payload_bootstrap.js or challenge_payload_runner.js unless explicitly requested",
+        "The response uses js_reverse_cache for dynamic materials"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "帮我把瑞数首跳 HTML、r='m' 外链 JS、首跳 Cookie 和运行报告保存起来，同 session 后面要回放业务接口。",
+      "expected_output": "应把首跳材料写入 js_reverse_cache/<run>/，强调同 session Cookie、payload、runtime、业务参数和回放请求不能混用旧材料。",
+      "files": [],
+      "expectations": [
+        "The response stores first-hop HTML, cookies, runner URL, runner JS, or reports in a timestamped js_reverse_cache run directory",
+        "The response keeps all replay materials in the same session chain",
+        "The response avoids writing dynamic target-site materials into the skill directory"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "需要一个最小 mod.js proxy 模板，先观察瑞数 JS 在本地读取 navigator、location、document.cookie 哪些环境，不要扩展成完整浏览器框架。",
+      "expected_output": "应使用 minimal-proxy-env-template.js 创建或修复 mod.js，目标是观察环境读取，不进入重型完整 DOM / 浏览器补环境。",
+      "files": [],
+      "expectations": [
+        "The response uses the minimal proxy template for mod.js",
+        "The response keeps the scope to environment read/write observation",
+        "The response does not expand mod.js into a full browser emulation framework"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "这个瑞数站想继续深挖 Cookie 算法链、type=2 映射和 r2mKa 字节码。",
+      "expected_output": "不应由精简版 rs-reverse 处理，应明确这是当前 skill 集未覆盖的深度研究路线，不要按固定骨架路线继续。",
+      "files": [],
+      "expectations": [
+        "The response refuses or stops the simplified rs-reverse route for deep Ruishu algorithm research",
+        "The response identifies r2mKa bytecode and URL suffix AST research as out of scope",
+        "The response does not pretend the fixed scaffold can solve deep algorithm research"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "瑞数后缀请求失败，目标是用 Python + iv8 执行页面拿最终 URL 后翻页请求。",
+      "expected_output": "不应继续 rs-reverse，应转 iv8-web-reverse，因为交付目标是 Python + iv8 请求可用性。",
+      "files": [],
+      "expectations": [
+        "The response hands off to iv8-web-reverse for suffix-dependent request availability",
+        "The response does not continue suffix generation or URL suffix AST research inside rs-reverse",
+        "The response preserves same-session material discipline in the handoff"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "帮我用 Python + iv8 跑 Boss 直聘职位搜索接口，code=37 时生成 __zp_stoken__ 再重试",
+    "should_trigger": true,
+    "reason": "Boss 直聘 + iv8 + __zp_stoken__ + 请求复现"
+  },
+  {
+    "prompt": "zhipin 的接口返回 zpData seed name ts，写个脚本下载 security-js 并算 token",
+    "should_trigger": true,
+    "reason": "Boss security-js 和 seed/name/ts stoken 流程"
+  },
+  {
+    "prompt": "帮我改 Boss 直聘 joblist.json 翻页脚本，Cookie 里的 __zp_stoken__ 过期了",
+    "should_trigger": true,
+    "reason": "Boss joblist 和 stoken 刷新"
+  },
+  {
+    "prompt": "京东 h5st 用 iv8 跑一下",
+    "should_trigger": false,
+    "reason": "JD h5st 应交给 jd-h5st-iv8"
+  },
+  {
+    "prompt": "帮我找一下 Boss 直聘 __zp_stoken__ 是哪个 JS 函数生成的，不用写脚本",
+    "should_trigger": false,
+    "reason": "只定位入口应交给 find-crypto-entry"
+  },
+  {
+    "prompt": "给我一个 hook fetch 和 cookie 的浏览器 snippet",
+    "should_trigger": false,
+    "reason": "浏览器 hook snippet 不是本 skill"
+  }
+]

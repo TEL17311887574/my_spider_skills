@@ -1,0 +1,37 @@
+[
+  {
+    "prompt": "把这次还原的抖音 a_bogus 全流程做成纯 Python 纯算，不要 iv8/jsdom/浏览器。",
+    "should_trigger": true,
+    "reason": "明确抖音 a_bogus 纯算"
+  },
+  {
+    "prompt": "我有 pure_abogus.py，帮我生成一个 douyin aweme/post 的纯 requests 请求脚本。",
+    "should_trigger": true,
+    "reason": "基于已还原纯算生成请求脚本"
+  },
+  {
+    "prompt": "WINDOW_INFO 这些字段是不是环境依赖？帮我优化纯算脚本。",
+    "should_trigger": true,
+    "reason": "围绕抖音 a_bogus 纯算中的显式环境字段解释和优化"
+  },
+  {
+    "prompt": "用 iv8 执行 BDMS JS，截获 XHR 里的 a_bogus。",
+    "should_trigger": false,
+    "reason": "iv8 喂入截出应交给 iv8-web-reverse"
+  },
+  {
+    "prompt": "帮我在浏览器控制台 hook fetch 和 XHR 看谁写了 a_bogus。",
+    "should_trigger": false,
+    "reason": "hook snippet 应交给 browser-hook-snippets"
+  },
+  {
+    "prompt": "打开抖音页面找一下 a_bogus 的入口函数和调用栈。",
+    "should_trigger": false,
+    "reason": "从零入口定位应交给 camoufox-js-reverse"
+  },
+  {
+    "prompt": "还原小红书 X-s 和 X-S-Common 的纯协议采集器。",
+    "should_trigger": false,
+    "reason": "非抖音 a_bogus，属于其他协议恢复"
+  }
+]

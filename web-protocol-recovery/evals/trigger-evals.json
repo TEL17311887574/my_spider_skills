@@ -1,0 +1,82 @@
+[
+  {
+    "query": "帮我恢复这个网站的真实验证链路，涉及签名、cookie 挑战和响应解密，最终要一个脱离浏览器的 Python 采集器",
+    "should_trigger": true
+  },
+  {
+    "query": "抓包发现请求走 WebSocket + protobuf，响应是加密的，需要恢复完整协议链路",
+    "should_trigger": true
+  },
+  {
+    "query": "页面有 3 层防护：412 挑战 → 动态 Cookie → sign 签名 → 响应解码，帮我端到端打通成 Python 采集器",
+    "should_trigger": true
+  },
+  {
+    "query": "这个接口返回的是加密数据，页面用 WASM 解密后再用字体映射才能读到真实数字，帮我端到端还原成 Python",
+    "should_trigger": true
+  },
+  {
+    "query": "这个 GraphQL 接口的 operationName 和 variables 签名逻辑很复杂，帮我恢复成 Python 采集器，不要任何浏览器依赖",
+    "should_trigger": true
+  },
+  {
+    "query": "目标网站首页公开但列表接口请求体有加密信封，需要找到信封构建逻辑并用 Python 复现",
+    "should_trigger": true
+  },
+  {
+    "query": "给了你 request/response 样本，签名函数看着像 md5 但和标准 md5 不一样，帮我追到底",
+    "should_trigger": true
+  },
+  {
+    "query": "响应体是二进制格式，页面有本地 decoder 转成 JSON，帮我把 decoder 逻辑移植到 Python",
+    "should_trigger": true
+  },
+  {
+    "query": "这个网站每次访问首页都会返回不一样的内联 JS，执行后 cookie 才生成，帮我复原成 Python bootstrap",
+    "should_trigger": true
+  },
+  {
+    "query": "我的 Python 回放总是差一点点，帮我把 sign 输入端和输出端 diff 出来",
+    "should_trigger": true
+  },
+  {
+    "query": "我不是要定位入口也不是要 hook 脚本，我要完整打通整个协议的纯 Python 实现",
+    "should_trigger": true
+  },
+  {
+    "query": "请求头里的 x-sign 是哪个函数生成的，给我脚本位置和调用链",
+    "should_trigger": false
+  },
+  {
+    "query": "给我一个 DevTools 里能直接粘贴的 fetch hook 脚本，临时观察 cookie 是谁写的",
+    "should_trigger": false
+  },
+  {
+    "query": "入口已经找到了，把这段依赖 window/document 的 JS 补环境后放到 Node 里跑",
+    "should_trigger": false
+  },
+  {
+    "query": "这个 _0x 混淆大文件要做 AST 解混淆，保留 step1/step2 中间产物",
+    "should_trigger": false
+  },
+  {
+    "query": "用 Python + iv8 执行防护页 JS 生成 cookie 后翻页请求，要紧凑主脚本",
+    "should_trigger": false
+  },
+  {
+    "query": "首页 412 里有 $_ts.cd、$_ts.nsd、r2mKa 和 Cookie S/T，帮我建瑞数项目骨架",
+    "should_trigger": false
+  },
+  {
+    "query": "只知道 sign 在某个 chunk 里，先用浏览器帮我定位具体函数位置",
+    "should_trigger": false
+  },
+  {
+    "query": "已经定位到签名函数是 webpack chunk 里的某个模块了，帮我把它补环境跑通",
+    "should_trigger": false
+  },
+  {
+    "query": "给我一段最小的 console 脚本，我只想看看 cookie 每次变化",
+    "should_trigger": false
+  }
+]
