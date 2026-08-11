@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   update:
+    name: 更新子模块
     runs-on: ubuntu-latest
     steps:
       - name: 拉取仓库代码
