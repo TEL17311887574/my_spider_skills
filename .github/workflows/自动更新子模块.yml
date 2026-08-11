@@ -2,7 +2,9 @@ name: 自动更新子模块
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # 每天凌晨2点运行
+    - cron: '0 0 * * *'   # UTC 0点 = 本地8点
+    - cron: '0 8 * * *'   # UTC 8点 = 本地16点
+    - cron: '0 16 * * *'  # UTC 16点 = 本地0点
   workflow_dispatch:      # 允许手动点击运行
 
 permissions:
@@ -12,18 +14,18 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: 拉取仓库代码
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: true
 
-      - name: Update submodules to latest upstream
+      - name: 将子模块更新到上游最新版本
         run: |
           # 遍历所有子模块，拉取上游主分支最新代码
           git submodule update --remote --recursive
 
-      - name: Commit and push if changed
+      - name: 如有变更则提交并推送
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
