@@ -1,4 +1,4 @@
-name: Auto Update Submodules
+name: 自动更新子模块
 
 on:
   schedule:
