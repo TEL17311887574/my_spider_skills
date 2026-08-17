@@ -16,3 +16,6 @@
 [submodule "skills-betab0t"]
 	path = skills-betab0t
 	url = https://github.com/betab0t/skills.git
+[submodule "wmpf-offset-adaptation-skill"]
+	path = wmpf-offset-adaptation-skill
+	url = https://github.com/GhostMice/wmpf-offset-adaptation-skill.git
